@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
+/* ============================================== */
+
+:root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -11,12 +13,17 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 36, 36, 36;
+    --background-end-rgb: 36, 36, 36;
+    /* --background-start-rgb: 0, 0, 0; */
+    /* --background-end-rgb: 0, 0, 0; */
   }
 }
 
+html,
 body {
+  max-width: 100vw;
+  overflow-x: hidden;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,4 +31,14 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-} */
+}
+
+/* ============================================== */
+
+@layer components {
+  .heroButton {
+    @apply px-6 py-2 border border-[#242424] rounded-full uppercase
+      text-xs tracking-widest text-gray-500 transition-all
+      hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
+  }
+}
