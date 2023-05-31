@@ -1,5 +1,6 @@
 import About from '@/components/About';
 import Hero from '@/components/Hero';
+import WorkExperience from '@/components/WorkExperience';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,14 +11,16 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className='h-screen'>
-      {/* Hero */}
       <section id='hero' className='snap-start'>
         <Hero />
       </section>
 
-      {/* About */}
       <section id='about' className='snap-center'>
         <About />
+      </section>
+
+      <section id='experience' className='snap-center'>
+        <WorkExperience />
       </section>
     </div>
   );
