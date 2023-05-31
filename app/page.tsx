@@ -1,10 +1,12 @@
-import Image from 'next/image';
+import Hero from '@/components/Hero';
 
 export default function Home() {
   return (
-    <div>
-      {/* TODO: Placeholder Homepage Content */}
-      <h1>Welcome to Reece Donovan&rsquo;s personal website</h1>
+    <div className='h-screen'>
+      {/* Hero */}
+      <section id='hero' className='snap-center'>
+        <Hero />
+      </section>
     </div>
   );
 }
