@@ -7,7 +7,7 @@ type Props = {
   skills: Skill[];
 };
 
-export default function Skills({ skills }: Props) {
+export default function SkillSection({ skills }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}

@@ -8,7 +8,7 @@ type Props = {
   projects: Project[];
 };
 
-export default function Projects({ projects }: Props) {
+export default function ProjectSection({ projects }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}

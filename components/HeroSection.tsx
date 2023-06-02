@@ -12,7 +12,7 @@ type Props = {
   pageInfo: PageInfo;
 };
 
-export default function Hero({ pageInfo }: Props) {
+export default function HeroSection({ pageInfo }: Props) {
   const [text, count] = useTypewriter({
     words: [
       `Hi, I'm ${pageInfo?.name ?? 'Me'}`,

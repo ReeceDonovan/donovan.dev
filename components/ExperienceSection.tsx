@@ -7,7 +7,7 @@ type Props = {
   experiences: Experience[];
 };
 
-export default function WorkExperience({ experiences }: Props) {
+export default function ExperienceSection({ experiences }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}

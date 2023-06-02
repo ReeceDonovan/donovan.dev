@@ -6,8 +6,10 @@
 
 'use client';
 
-import { PhoneIcon, MapPinIcon, EnvelopeIcon } from '@heroicons/react/24/solid';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
+
+import { PageInfo } from '@/typings';
+import { EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/solid';
 
 type Inputs = {
   name: string;
@@ -16,11 +18,12 @@ type Inputs = {
   message: string;
 };
 
-// TODO: Consider integrating an email service like SendGrid to handle contact form submissions.
-export default function ContactMe() {
-  // TODO: Replace this hard-coded email with a dynamically defined email address.
-  const destinationEmail = 'placeholder.email@gmail.com';
+type Props = {
+  pageInfo: PageInfo;
+};
 
+// TODO: Consider integrating an email service like SendGrid to handle contact form submissions.
+export default function ContactSection({ pageInfo }: Props) {
   // TODO: Consider adding form validation and error handling. e.g.: 'formState: { errors }'
   const { register, handleSubmit } = useForm<Inputs>();
 
@@ -29,7 +32,7 @@ export default function ContactMe() {
       formData.name ? `Hi, my name is ${formData.name}. ` : ''
     }${formData.message} (Sent from ${formData.email})`;
 
-    window.location.href = `mailto:${destinationEmail}?subject=${formData.subject}&body=${emailBody}`;
+    window.location.href = `mailto:${pageInfo?.email}?subject=${formData.subject}&body=${emailBody}`;
   };
 
   return (
@@ -41,28 +44,20 @@ export default function ContactMe() {
       <div className='flex flex-col space-y-10'>
         <h4 className='text-4xl font-semibold text-center'>
           I&apos;m always up for a chat, whether it be about a new project or
-          just to say hi.{' '}
+          just to say hi.
+          <br />
           <span className='underline decoration-[#F7AB0A]/50'>Lets Talk.</span>
         </h4>
 
-        {/* TODO: Populate with real contact info */}
         <div className='space-y-10'>
           <div className='flex items-center space-x-5 justify-center'>
-            <PhoneIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
-            {/* TODO: Remove dummy phone number */}
-            <p className='text-2xl'>+1234567890</p>
-          </div>
-
-          <div className='flex items-center space-x-5 justify-center'>
             <EnvelopeIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
-            {/* TODO: Remove dummy email address */}
-            <p className='text-2xl'>johndoe@gmail.com</p>
+            <p className='text-2xl'>{pageInfo?.email}</p>
           </div>
 
           <div className='flex items-center space-x-5 justify-center'>
             <MapPinIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
-            {/* TODO: Remove dummy address */}
-            <p className='text-2xl'>1234 Main St, City, State 12345</p>
+            <p className='text-2xl'>{pageInfo?.address}</p>
           </div>
         </div>
 
