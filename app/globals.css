@@ -4,6 +4,9 @@
 
 /* ============================================== */
 
+/* TODO: Set variables for site-wide colors instead of hard-coding them inline.
+e.g. Replace #F7AB0A with a primary color variable */
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 214, 219, 220;
