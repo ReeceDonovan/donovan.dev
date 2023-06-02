@@ -3,14 +3,22 @@
 import Image from 'next/image';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
 
+import { urlForImage } from '@/sanity/lib/image';
+import { PageInfo } from '@/typings';
+
 import BackgroundCircles from './BackgroundCircles';
 
-export default function Hero() {
+type Props = {
+  pageInfo: PageInfo;
+};
+
+export default function Hero({ pageInfo }: Props) {
   const [text, count] = useTypewriter({
     words: [
-      "Hi, I'm Reece Donovan",
+      `Hi, I'm ${pageInfo?.name ?? 'Me'}`,
       'Hobbyist Photographer',
-      'Caffeine Worshipper',
+      'Content Consumer',
+      'Caffeine Drinker',
       'Jack of All Trades',
       '...Master of None',
     ],
@@ -21,17 +29,20 @@ export default function Hero() {
   return (
     <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden'>
       <BackgroundCircles />
-      {/* TODO: Replace GitHub Avatar with a proper photo */}
       <Image
-        src='https://avatars.githubusercontent.com/u/42524740?v=4'
-        alt='Reece Donovan - GitHub Avatar'
+        src={urlForImage(pageInfo?.heroImage).url()}
+        alt={
+          pageInfo?.name
+            ? `${pageInfo.name}'s Profile Picture`
+            : 'Profile Picture'
+        }
         className='relative rounded-full h-32 w-32 mx-auto object-cover'
         width={128}
         height={128}
       />
       <div className='z-20'>
         <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>
-          Software Engineer
+          {pageInfo?.role ?? 'Software Developer'}
         </h2>
         <h1 className='text-5xl lg:text-6xl font-semibold px-10'>
           <span className='mr-3'>{text}</span>
