@@ -1,10 +1,12 @@
+import { Metadata } from 'next';
+
 import About from '@/components/About';
 import ContactMe from '@/components/ContactMe';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import WorkExperience from '@/components/WorkExperience';
-import { Metadata } from 'next';
+import { ArrowUpCircleIcon } from '@heroicons/react/24/outline';
 
 export const metadata: Metadata = {
   title: "Reece Donovan's Portfolio",
@@ -39,6 +41,14 @@ export default function Home() {
       <section id='contact' className='snap-start'>
         <ContactMe />
       </section>
+
+      <a href='#hero'>
+        <footer className='sticky bottom-0 w-full'>
+          <div className='flex items-center justify-center h-14'>
+            <ArrowUpCircleIcon className='h-10 w-10 text-gray-500 hover:text-gray-700' />
+          </div>
+        </footer>
+      </a>
     </>
   );
 }
