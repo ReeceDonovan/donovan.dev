@@ -1,7 +1,13 @@
 import * as motion from '@/lib/motion';
-import Skill from './Skill';
+import { Skill } from '@/typings';
 
-export default function Skills() {
+import SkillItem from './SkillItem';
+
+type Props = {
+  skills: Skill[];
+};
+
+export default function Skills({ skills }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -17,22 +23,14 @@ export default function Skills() {
         Hover over a skill for current experience level
       </h3>
 
-      {/* TODO: Populate with real dynamic data */}
       <div className='grid grid-cols-4 gap-5'>
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
+        {skills.map((skill, idx) => (
+          <SkillItem
+            key={skill._id}
+            skill={skill}
+            directionLeft={idx >= skills.length / 2}
+          />
+        ))}
       </div>
     </motion.div>
   );
