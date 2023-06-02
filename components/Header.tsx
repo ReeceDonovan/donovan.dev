@@ -1,11 +1,15 @@
 import { SocialIcon } from 'react-social-icons';
 
 import * as motion from '@/lib/motion';
+import { Social } from '@/typings';
 
-export default function Header() {
+type Props = {
+  socials: Social[];
+};
+
+export default function Header({ socials }: Props) {
   return (
     <header className='sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center'>
-      {/* TODO: Make social icons dynamically generated */}
       <motion.div
         initial={{ x: -500, opacity: 0, scale: 0.5 }}
         animate={{ x: 0, opacity: 1, scale: 1 }}
@@ -13,24 +17,14 @@ export default function Header() {
         className='flex flex-row items-center'
       >
         {/* Social Icons */}
-        <SocialIcon
-          network='github'
-          url='https://github.com/ReeceDonovan'
-          fgColor='gray'
-          bgColor='transparent'
-        />
-        <SocialIcon
-          network='github'
-          url='https://github.com/ReeceDonovan'
-          fgColor='gray'
-          bgColor='transparent'
-        />
-        <SocialIcon
-          network='github'
-          url='https://github.com/ReeceDonovan'
-          fgColor='gray'
-          bgColor='transparent'
-        />
+        {socials.map((social) => (
+          <SocialIcon
+            key={social._id}
+            url={social.url}
+            fgColor='gray'
+            bgColor='transparent'
+          />
+        ))}
       </motion.div>
 
       {/* Contact Icon */}
