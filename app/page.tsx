@@ -1,5 +1,6 @@
 import About from '@/components/About';
 import Hero from '@/components/Hero';
+import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import WorkExperience from '@/components/WorkExperience';
 import { Metadata } from 'next';
@@ -26,6 +27,10 @@ export default function Home() {
 
       <section id='skills' className='snap-start'>
         <Skills />
+      </section>
+
+      <section id='projects' className='snap-start'>
+        <Projects />
       </section>
     </div>
   );
