@@ -1,19 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // TODO: Replace with final domains
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
+        hostname: 'cdn.sanity.io',
         port: '',
-        pathname: '/u/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cdn.discordapp.com',
-        port: '',
-        pathname: '/avatars/**',
+        pathname: '/images/**',
       },
     ],
   },
