@@ -1,22 +1,10 @@
-// Experience
-// PageInfo
-// Project
-// Skill
-// Social
+import type { Image } from 'sanity';
 
 interface SanityBase {
   _createdAt: string;
   _id: string;
   _rev: string;
   _updatedAt: string;
-}
-
-interface Image {
-  _type: 'image';
-  asset: {
-    _ref: string;
-    _type: 'reference';
-  };
 }
 
 export interface Experience extends SanityBase {
