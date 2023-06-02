@@ -1,4 +1,5 @@
 import About from '@/components/About';
+import ContactMe from '@/components/ContactMe';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
   description: 'A software development portfolio for Reece Donovan.',
 };
 
+/* TODO: Rename the homepage section components.e.g. "Hero.tsx" -> "HeroSection.tsx" */
 export default function Home() {
   return (
     <div className='h-screen'>
@@ -31,6 +33,11 @@ export default function Home() {
 
       <section id='projects' className='snap-start'>
         <Projects />
+      </section>
+
+      {/* TODO: Rename the "ContactMe" component */}
+      <section id='contact' className='snap-start'>
+        <ContactMe />
       </section>
     </div>
   );
