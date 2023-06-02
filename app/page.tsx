@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 /* TODO: Rename the homepage section components.e.g. "Hero.tsx" -> "HeroSection.tsx" */
 export default function Home() {
   return (
-    <div className='h-screen'>
+    <>
       <section id='hero' className='snap-start'>
         <Hero />
       </section>
@@ -39,6 +39,6 @@ export default function Home() {
       <section id='contact' className='snap-start'>
         <ContactMe />
       </section>
-    </div>
+    </>
   );
 }
