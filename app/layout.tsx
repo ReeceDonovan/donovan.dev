@@ -18,7 +18,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <div className='h-screen snap-y snap-mandatory z-0 overflow-x-hidden overflow-y-scroll'>
+        <div className='h-screen snap-y snap-mandatory z-0 overflow-x-hidden overflow-y-scroll scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/70'>
           <Header />
           {children}
         </div>

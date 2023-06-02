@@ -5,10 +5,7 @@ export default function Projects() {
   // Dummy data for development purposes
   const projects = [1, 2, 3, 4, 5];
 
-  {
-    /* TODO: Populate with real dynamic data */
-  }
-
+  // TODO: Populate with real dynamic data
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -20,7 +17,7 @@ export default function Projects() {
         Projects
       </h3>
 
-      <div className='relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20'>
+      <div className='relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/70'>
         {projects.map((project, i) => (
           <div className='w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen'>
             {/* TODO: Replace with actual project image */}
