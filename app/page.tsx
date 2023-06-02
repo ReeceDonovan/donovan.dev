@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 
 import About from '@/components/About';
 import ContactMe from '@/components/ContactMe';
+import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
 /* TODO: Rename the homepage section components.e.g. "Hero.tsx" -> "HeroSection.tsx" */
 export default function Home() {
   return (
-    <>
+    <div className='h-screen snap-y snap-mandatory z-0 overflow-x-hidden overflow-y-scroll scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/70'>
+      <Header />
       <section id='hero' className='snap-start'>
         <Hero />
       </section>
@@ -49,6 +51,6 @@ export default function Home() {
           </div>
         </footer>
       </a>
-    </>
+    </div>
   );
 }
