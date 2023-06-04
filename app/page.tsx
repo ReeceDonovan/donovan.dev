@@ -35,7 +35,7 @@ export default async function Home() {
   const socials: Social[] = await client.fetch(socialsQuery);
 
   return (
-    <main className='h-screen snap-y snap-mandatory z-0 overflow-x-hidden overflow-y-scroll scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/70'>
+    <main className='h-[calc(100dvh)] snap-y snap-mandatory z-0 overflow-x-hidden overflow-y-scroll scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/70'>
       <Header socials={socials} />
       <section id='hero' className='snap-start'>
         <HeroSection pageInfo={pageInfo} />
@@ -63,7 +63,7 @@ export default async function Home() {
 
       <a href='#hero'>
         <footer className='sticky bottom-0 w-full'>
-          <div className='flex items-center justify-center h-14'>
+          <div className='flex items-center justify-center h-12'>
             <ArrowUpCircleIcon className='h-10 w-10 text-gray-500 hover:text-gray-700' />
           </div>
         </footer>
