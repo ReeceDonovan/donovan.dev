@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const experienceQuery = groq`*[_type == "experience"] {..., technologies[]->}`;
+  const experienceQuery = groq`*[_type == "experience"] | order(dateEnded desc, isCurrentPosition desc) {..., technologies[]->}`;
   const pageInfoQuery = groq`*[_type == "pageInfo"][0]`;
   const projectsQuery = groq`*[_type == "project"] {..., technologies[]->}`;
   const skillsQuery = groq`*[_type == "skill"]`;
