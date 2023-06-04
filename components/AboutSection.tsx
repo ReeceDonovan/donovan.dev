@@ -34,7 +34,7 @@ export default function AboutSection({ pageInfo }: Props) {
           background:
         </h4>
 
-        <p className='text-base'>
+        <p className='text-sm md:text-base'>
           {pageInfo?.backgroundInformation ?? 'Nothing to see here...'}
         </p>
       </div>
