@@ -20,7 +20,7 @@ export default function ProjectSection({ projects }: Props) {
         Projects
       </h3>
 
-      <div className='relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/70'>
+      <div className='relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-primary/70'>
         {projects?.map((project, idx) => (
           <div
             key={project?._id}
@@ -37,7 +37,7 @@ export default function ProjectSection({ projects }: Props) {
 
             <div className=' space-y-10 px-0 md:px-10 max-w-6xl'>
               <h4 className='text-4xl font-semibold text-center'>
-                <span className='underline decoration-[#F7AB0A]/50'>
+                <span className='underline decoration-primary/50'>
                   Project {idx + 1} of {projects.length}:
                 </span>{' '}
                 {project?.title ?? 'Project Title'}
@@ -64,7 +64,7 @@ export default function ProjectSection({ projects }: Props) {
         ))}
       </div>
 
-      <div className='w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12' />
+      <div className='w-full absolute top-[30%] bg-primary/10 left-0 h-[500px] -skew-y-12' />
     </motion.div>
   );
 }

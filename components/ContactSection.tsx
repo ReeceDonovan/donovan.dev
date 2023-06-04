@@ -46,17 +46,17 @@ export default function ContactSection({ pageInfo }: Props) {
           I&apos;m always up for a chat, whether it be about a new project or
           just to say hi.
           <br />
-          <span className='underline decoration-[#F7AB0A]/50'>Lets Talk.</span>
+          <span className='underline decoration-primary/50'>Lets Talk.</span>
         </h4>
 
         <div className='space-y-10'>
           <div className='flex items-center space-x-5 justify-center'>
-            <EnvelopeIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
+            <EnvelopeIcon className='text-primary h-7 w-7 animate-pulse' />
             <p className='text-2xl'>{pageInfo?.email}</p>
           </div>
 
           <div className='flex items-center space-x-5 justify-center'>
-            <MapPinIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
+            <MapPinIcon className='text-primary h-7 w-7 animate-pulse' />
             <p className='text-2xl'>{pageInfo?.address}</p>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function ContactSection({ pageInfo }: Props) {
 
           <button
             type='submit'
-            className='bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold text-lg'
+            className='bg-primary/60 hover:bg-primary/80 py-5 px-10 rounded-md text-black font-bold text-lg'
           >
             Submit
           </button>

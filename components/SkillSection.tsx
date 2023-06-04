@@ -24,7 +24,7 @@ export default function SkillSection({ skills }: Props) {
       </h3>
 
       <div className='grid grid-cols-4 gap-5'>
-        {skills.map((skill, idx) => (
+        {skills?.map((skill, idx) => (
           <SkillItem
             key={skill._id}
             skill={skill}
