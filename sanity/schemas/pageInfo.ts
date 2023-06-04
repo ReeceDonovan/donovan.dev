@@ -4,7 +4,7 @@ import { defineField, defineType } from 'sanity';
 name: string;
 role: string;
 heroImage: image;
-backgroundInformation: string;
+backgroundInformation: text;
 profilePicture: image;
 phoneNumber: string;
 email: string;
@@ -38,7 +38,7 @@ export default defineType({
     defineField({
       name: 'backgroundInformation',
       title: 'BackgroundInformation',
-      type: 'string',
+      type: 'text',
     }),
     defineField({
       name: 'profilePicture',
