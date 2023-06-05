@@ -1,9 +1,3 @@
-/* TODO: !IMPORTANT! The form hooks must be client-side rendered, resulting in SEO not capturing the non-interactive contact details.
- * Separate the "ContactMe" section component into two separate components: "ContactInfo" and "ContactForm".
- * The "ContactInfo" component will be rendered server-side, allowing SEO to capture the contact details.
- * The "ContactForm" component will be rendered client-side, allowing the form hooks to function.
- */
-
 'use client';
 
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -22,9 +16,7 @@ type Props = {
   pageInfo: PageInfo;
 };
 
-// TODO: Consider integrating an email service like SendGrid to handle contact form submissions.
 export default function ContactSection({ pageInfo }: Props) {
-  // TODO: Consider adding form validation and error handling. e.g.: 'formState: { errors }'
   const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
@@ -36,28 +28,28 @@ export default function ContactSection({ pageInfo }: Props) {
   };
 
   return (
-    <div className='h-screen relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'>
-      <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>
+    <div className='h-[calc(100dvh)] relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'>
+      <h3 className='absolute top-20 md:top-24 uppercase tracking-[10px] md:tracking-[20px] text-gray-500 text-xl md:text-2xl pl-3'>
         Contact
       </h3>
 
-      <div className='flex flex-col space-y-10'>
-        <h4 className='text-4xl font-semibold text-center'>
+      <div className='flex flex-col space-y-9 max-w-[calc(100dvw-5rem)] mt-16 '>
+        <h4 className='text-xl md:text-4xl font-semibold text-center'>
           I&apos;m always up for a chat, whether it be about a new project or
           just to say hi.
           <br />
           <span className='underline decoration-primary/50'>Lets Talk.</span>
         </h4>
 
-        <div className='space-y-10'>
-          <div className='flex items-center space-x-5 justify-center'>
-            <EnvelopeIcon className='text-primary h-7 w-7 animate-pulse' />
-            <p className='text-2xl'>{pageInfo?.email}</p>
+        <div className='space-y-4'>
+          <div className='flex items-center space-x-5 justify-center -ml-4'>
+            <EnvelopeIcon className='text-primary h-7 w-7 animate-pulse flex-initial' />
+            <p className='text-base md:text-2xl'>{pageInfo?.email}</p>
           </div>
 
-          <div className='flex items-center space-x-5 justify-center'>
-            <MapPinIcon className='text-primary h-7 w-7 animate-pulse' />
-            <p className='text-2xl'>{pageInfo?.address}</p>
+          <div className='flex items-center space-x-5 justify-center -ml-4'>
+            <MapPinIcon className='text-primary h-7 w-7 animate-pulse flex-initial' />
+            <p className='text-base md:text-2xl'>{pageInfo?.address}</p>
           </div>
         </div>
 
@@ -65,16 +57,16 @@ export default function ContactSection({ pageInfo }: Props) {
           onSubmit={handleSubmit(onSubmit)}
           className='flex flex-col space-y-2 w-fit mx-auto'
         >
-          <div className='flex space-x-2'>
+          <div className='flex flex-col md:flex-row space-y-2 md:space-x-2 text-center md:text-left placeholder:text-center md:placeholder-left'>
             <input
               placeholder='Name'
-              className='contactInput'
+              className='contactInput text-center md:text-left placeholder:text-center md:placeholder-left'
               type='text'
               {...register('name')}
             />
             <input
               placeholder='Email'
-              className='contactInput'
+              className='contactInput text-center md:text-left placeholder:text-center md:placeholder-left'
               type='email'
               {...register('email', { required: true })}
             />
@@ -82,20 +74,20 @@ export default function ContactSection({ pageInfo }: Props) {
 
           <input
             placeholder='Subject'
-            className='contactInput'
+            className='contactInput text-center md:text-left placeholder:text-center md:placeholder-left'
             type='text'
             {...register('subject')}
           />
 
           <textarea
             placeholder='Message'
-            className='contactInput'
+            className='contactInput text-center md:text-left placeholder:text-center md:placeholder-left'
             {...register('message')}
           />
 
           <button
             type='submit'
-            className='bg-primary/60 hover:bg-primary/80 py-5 px-10 rounded-md text-black font-bold text-lg'
+            className='bg-primary/60 hover:bg-primary/80 py-3 px-10 rounded-md text-black font-bold text-lg'
           >
             Submit
           </button>
