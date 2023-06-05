@@ -25,7 +25,6 @@ export default function SkillSection({ skills }: Props) {
       <div className='overflow-x-hidden h-[calc(100dvh*0.6)] w-[calc(100dvw-5rem)] md:w-[600px] xl:w-[900px] mt-12 py-5 md:p-10 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-primary/50'>
         <div
           aria-labelledby='skills'
-          role='list'
           className='flex flex-row flex-wrap flex-shrink-0 justify-evenly items-center space-x-2 py-2 w-fit self-center'
         >
           {skills

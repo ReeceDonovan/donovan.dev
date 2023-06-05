@@ -22,7 +22,6 @@ export default function ExperienceSection({ experiences }: Props) {
 
       <div
         className='w-full flex space-x-5 overflow-x-scroll p-5 pt-16 md:p-10 snap-x snap-mandatory scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-primary/50 h-[calc(100dvh-7rem)] md:h-fit'
-        role='list'
         tabIndex={0}
         aria-label='List of experiences'
       >
