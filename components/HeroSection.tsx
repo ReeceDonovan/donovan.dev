@@ -42,7 +42,7 @@ export default function HeroSection({ pageInfo }: Props) {
         height={128}
       />
       <div className='z-20'>
-        <h2 className='text-sm uppercase text-gray-500 pb-3 tracking-[10px] md:tracking-[15px]'>
+        <h2 className='text-sm md:text-base uppercase text-gray-500 pb-3 tracking-[10px] md:tracking-[15px]'>
           {pageInfo?.role ?? 'Software Developer'}
         </h2>
         <h1 className='text-3xl md:text-5xl lg:text-6xl font-semibold px-5'>

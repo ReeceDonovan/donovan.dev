@@ -34,7 +34,7 @@ export default function ContactSection({ pageInfo }: Props) {
       </h3>
 
       <div className='flex flex-col space-y-9 max-w-[calc(100dvw-5rem)] mt-16 '>
-        <h4 className='text-xl md:text-4xl font-semibold text-center'>
+        <h4 className='text-xl md:text-4xl font-semibold text-center mx-auto md:w-4/5'>
           I&apos;m always up for a chat, whether it be about a new project or
           just to say hi.
           <br />
@@ -57,7 +57,7 @@ export default function ContactSection({ pageInfo }: Props) {
           onSubmit={handleSubmit(onSubmit)}
           className='flex flex-col space-y-2 w-fit mx-auto'
         >
-          <div className='flex flex-col md:flex-row space-y-2 md:space-x-2 text-center md:text-left placeholder:text-center md:placeholder-left'>
+          <div className='flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 text-center md:text-left placeholder:text-center md:placeholder-left'>
             <input
               placeholder='Name'
               className='contactInput text-center md:text-left placeholder:text-center md:placeholder-left'
