@@ -1,3 +1,3 @@
-export default function LoadingUsers() {
-  return <div>Loading user data...</div>;
+export default function LoadingHome() {
+  return <div>Loading home data...</div>;
 }
