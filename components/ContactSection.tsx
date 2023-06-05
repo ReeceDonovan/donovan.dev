@@ -17,7 +17,14 @@ type Props = {
 };
 
 export default function ContactSection({ pageInfo }: Props) {
-  const { register, handleSubmit } = useForm<Inputs>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const inputStyles =
+    'contactInput text-center md:text-left placeholder:text-center md:placeholder-left';
 
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     const emailBody = `${
@@ -57,20 +64,28 @@ export default function ContactSection({ pageInfo }: Props) {
           onSubmit={handleSubmit(onSubmit)}
           className='flex flex-col space-y-2 w-fit mx-auto'
         >
-          <div className='flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 text-center md:text-left placeholder:text-center md:placeholder-left'>
-            <input
-              placeholder='Name'
-              className='contactInput text-center md:text-left placeholder:text-center md:placeholder-left'
-              type='text'
-              {...register('name')}
-            />
-            <input
-              placeholder='Email'
-              className='contactInput text-center md:text-left placeholder:text-center md:placeholder-left'
-              type='email'
-              {...register('email', { required: true })}
-            />
-          </div>
+          <label className='hidden' htmlFor='name'>
+            Name
+          </label>
+          <input
+            id='name'
+            placeholder='Enter your name'
+            className={inputStyles}
+            type='text'
+            {...register('name')}
+          />
+
+          <label className='hidden' htmlFor='email'>
+            Email
+          </label>
+          <input
+            id='email'
+            placeholder='Enter your email'
+            className={inputStyles}
+            type='email'
+            {...register('email', { required: 'Email is required' })}
+          />
+          {errors.email && <p>{errors.email.message}</p>}
 
           <input
             placeholder='Subject'

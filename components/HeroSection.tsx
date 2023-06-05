@@ -28,7 +28,10 @@ export default function HeroSection({ pageInfo }: Props) {
   });
 
   return (
-    <div className='h-[calc(100dvh)] flex flex-col space-y-9 items-center justify-center text-center overflow-hidden'>
+    <div
+      role='complementary'
+      className='h-[calc(100dvh)] flex flex-col space-y-9 items-center justify-center text-center overflow-hidden'
+    >
       <BackgroundCircles />
       <Image
         src={urlForImage(pageInfo?.heroImage).url()}
@@ -40,6 +43,7 @@ export default function HeroSection({ pageInfo }: Props) {
         className='relative rounded-full h-32 w-32 mx-auto object-cover'
         width={128}
         height={128}
+        priority={true}
       />
       <div className='z-20'>
         <h2 className='text-sm md:text-base uppercase text-gray-500 pb-3 tracking-[10px] md:tracking-[15px]'>
@@ -51,20 +55,20 @@ export default function HeroSection({ pageInfo }: Props) {
         </h1>
 
         <div className='pt-5'>
-          <a href='#about'>
-            <button className='heroButton'>About</button>
+          <a href='#about' tabIndex={0} aria-label='About'>
+            <button className='heroButton'>About Me</button>
           </a>
 
-          <a href='#experience'>
-            <button className='heroButton'>Experience</button>
+          <a href='#experience' tabIndex={0} aria-label='Experience'>
+            <button className='heroButton'>Experience and Work</button>
           </a>
 
-          <a href='#skills'>
-            <button className='heroButton'>Skills</button>
+          <a href='#skills' tabIndex={0} aria-label='Skills'>
+            <button className='heroButton'>My Skills</button>
           </a>
 
-          <a href='#projects'>
-            <button className='heroButton'>Projects</button>
+          <a href='#projects' tabIndex={0} aria-label='Projects'>
+            <button className='heroButton'>My Projects</button>
           </a>
         </div>
       </div>

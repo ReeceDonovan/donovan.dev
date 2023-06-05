@@ -10,18 +10,26 @@ type Props = {
 
 export default function ExperienceCard({ experience }: Props) {
   return (
-    <article className='flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[calc(100dvw-5rem)] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden'>
-      <motion.img
-        initial={{ y: -100, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1.25 }}
-        viewport={{ once: true }}
-        className='w-28 h-28 md:w-32 md:h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center -mb-3 md:mb-0 -mt-5 md:mt-0'
-        src={urlForImage(experience?.companyImage).url() ?? ''}
-        alt={
-          experience?.company ? `${experience.company} Logo` : 'Company Logo'
-        }
-      />
+    <article
+      aria-label='Experience Card'
+      className='flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[calc(100dvw-5rem)] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden'
+    >
+      <figure>
+        <motion.img
+          initial={{ y: -100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1.25 }}
+          viewport={{ once: true }}
+          className='w-28 h-28 md:w-32 md:h-32 rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center -mb-3 md:mb-0 -mt-5 md:mt-0'
+          src={urlForImage(experience?.companyImage).url() ?? ''}
+          alt={
+            experience?.company
+              ? `${experience.company} Company Logo`
+              : 'Company Logo'
+          }
+        />
+        <figcaption className='sr-only'>{experience?.company} Logo</figcaption>
+      </figure>
 
       <div className='px-0 md:px-10 text-center md:text-left'>
         <h4 className='text-xl md:text-4xl font-light'>
@@ -32,10 +40,17 @@ export default function ExperienceCard({ experience }: Props) {
         </p>
 
         <p className='uppercase py-3 md:py-5 text-gray-300 hover:text-primary/60 transition-all duration-300 text-base'>
-          {new Date(experience?.dateStarted).toLocaleDateString('en-IE')} -{' '}
-          {experience.isCurrentPosition
-            ? 'Present'
-            : new Date(experience?.dateEnded).toLocaleDateString('en-IE')}
+          <time dateTime={experience?.dateStarted}>
+            {new Date(experience?.dateStarted).toLocaleDateString('en-IE')}
+          </time>{' '}
+          -{' '}
+          {experience.isCurrentPosition ? (
+            'Present'
+          ) : (
+            <time dateTime={experience?.dateEnded}>
+              {new Date(experience?.dateEnded).toLocaleDateString('en-IE')}
+            </time>
+          )}
         </p>
 
         <div className='flex flex-wrap justify-center md:justify-start space-x-2 md:space-x-4 mb-2'>

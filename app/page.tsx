@@ -3,11 +3,11 @@ import { groq } from 'next-sanity';
 
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
+import ExperienceSection from '@/components/ExperienceSection';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import ProjectSection from '@/components/ProjectSection';
 import SkillSection from '@/components/SkillSection';
-import ExperienceSection from '@/components/ExperienceSection';
 import { client } from '@/sanity/lib/client';
 import { Experience, PageInfo, Project, Skill, Social } from '@/typings';
 import { ArrowUpCircleIcon } from '@heroicons/react/24/outline';
@@ -35,8 +35,12 @@ export default async function Home() {
   const socials: Social[] = await client.fetch(socialsQuery);
 
   return (
-    <main className='h-[calc(100dvh)] snap-y snap-mandatory z-0 overflow-x-hidden overflow-y-scroll scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/60'>
+    <main
+      role='main'
+      className='h-[calc(100dvh)] snap-y snap-mandatory z-0 overflow-x-hidden overflow-y-scroll scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/60'
+    >
       <Header socials={socials} />
+
       <section id='hero' className='snap-start'>
         <HeroSection pageInfo={pageInfo} />
       </section>
@@ -61,10 +65,13 @@ export default async function Home() {
         <ContactSection pageInfo={pageInfo} />
       </section>
 
-      <a href='#hero'>
+      <a href='#hero' tabIndex={0} aria-label='Back to top'>
         <footer className='sticky bottom-0 w-full'>
           <div className='flex items-center justify-center h-12'>
-            <ArrowUpCircleIcon className='h-10 w-10 text-gray-500 hover:text-gray-700' />
+            <ArrowUpCircleIcon
+              className='h-10 w-10 text-gray-500 hover:text-gray-700'
+              aria-label='Arrow pointing up'
+            />
           </div>
         </footer>
       </a>
