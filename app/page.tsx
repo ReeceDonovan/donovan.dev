@@ -35,7 +35,7 @@ export default async function Home() {
   const socials: Social[] = await client.fetch(socialsQuery);
 
   return (
-    <main className='h-[calc(100dvh)] snap-y snap-mandatory z-0 overflow-x-hidden overflow-y-scroll scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/70'>
+    <main className='h-[calc(100dvh)] snap-y snap-mandatory z-0 overflow-x-hidden overflow-y-scroll scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-primary/70'>
       <Header socials={socials} />
       <section id='hero' className='snap-start'>
         <HeroSection pageInfo={pageInfo} />

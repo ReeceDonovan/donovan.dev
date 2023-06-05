@@ -30,6 +30,6 @@ body {
   }
 
   .contactInput {
-    @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-primary/40 focus:text-primary/40 hover:border-primary/40;
+    @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-3 md:py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-primary/40 focus:text-primary/40 hover:border-primary/40;
   }
 }
