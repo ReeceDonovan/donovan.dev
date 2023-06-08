@@ -21,8 +21,8 @@ const metadataValues = {
   author: 'Reece Donovan',
   image:
     'https://cdn.sanity.io/images/jjbf7m3u/production/c2fc5a4719c5fa6aa2f524717d602b06465eb2e9-1873x2498.jpg',
-  // url: 'https://www.donovan.dev',
-  // url: 'http://localhost:3000/',
+  // TODO: url: 'https://www.donovan.dev',
+  // TODO: url: 'http://localhost:3000/',
   url: 'https://donovan-dev.vercel.app/',
   site_name: "Reece Donovan's Portfolio",
 };
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     url: metadataValues.url,
     siteName: metadataValues.site_name,
     type: 'website',
-    // image: metadataValues.image,
+    // TODO: image: metadataValues.image,
     locale: 'en_IE',
   },
 };

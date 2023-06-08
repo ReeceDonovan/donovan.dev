@@ -28,6 +28,7 @@ export default function Image() {
           justifyContent: 'center',
         }}
       >
+        {/* TODO: Generate a more interesting image, not just text */}
         Reece Donovan
       </div>
     ),
