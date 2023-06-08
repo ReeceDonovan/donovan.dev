@@ -8,7 +8,7 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import ProjectSection from '@/components/ProjectSection';
 import SkillSection from '@/components/SkillSection';
-import { client } from '@/sanity/lib/client';
+import { sanityClient } from '@/sanity/lib/client';
 import { Experience, PageInfo, Project, Skill, Social } from '@/typings';
 import { ArrowUpCircleIcon } from '@heroicons/react/24/outline';
 
@@ -49,15 +49,15 @@ export default async function Home() {
   const skillsQuery = groq`*[_type == "skill"]`;
   const socialsQuery = groq`*[_type == "social"]`;
 
-  const experiences: Experience[] = await client.fetch(experienceQuery);
+  const experiences: Experience[] = await sanityClient.fetch(experienceQuery);
 
-  const pageInfo: PageInfo = await client.fetch(pageInfoQuery);
+  const pageInfo: PageInfo = await sanityClient.fetch(pageInfoQuery);
 
-  const projects: Project[] = await client.fetch(projectsQuery);
+  const projects: Project[] = await sanityClient.fetch(projectsQuery);
 
-  const skills: Skill[] = await client.fetch(skillsQuery);
+  const skills: Skill[] = await sanityClient.fetch(skillsQuery);
 
-  const socials: Social[] = await client.fetch(socialsQuery);
+  const socials: Social[] = await sanityClient.fetch(socialsQuery);
 
   return (
     <main
