@@ -9,13 +9,13 @@ import { PageInfo } from '@/typings';
 import BackgroundCircles from './BackgroundCircles';
 
 type Props = {
-  pageInfo: PageInfo;
+  info: PageInfo;
 };
 
-export default function HeroSection({ pageInfo }: Props) {
+export default function HeroSection({ info }: Props) {
   const [text, count] = useTypewriter({
     words: [
-      `I'm ${pageInfo?.name ?? 'Me'}`,
+      `I'm ${info?.name ?? 'Me'}`,
       'Code Writer',
       'Photo Taker',
       'Content Consumer',
@@ -34,12 +34,8 @@ export default function HeroSection({ pageInfo }: Props) {
     >
       <BackgroundCircles />
       <Image
-        src={urlForImage(pageInfo?.heroImage).url()}
-        alt={
-          pageInfo?.name
-            ? `${pageInfo.name}'s Profile Picture`
-            : 'Profile Picture'
-        }
+        src={urlForImage(info?.heroImage).url()}
+        alt={info?.name ? `${info.name}'s Profile Picture` : 'Profile Picture'}
         className='relative rounded-full h-32 w-32 mx-auto object-cover'
         width={128}
         height={128}
@@ -47,7 +43,7 @@ export default function HeroSection({ pageInfo }: Props) {
       />
       <div className='z-20'>
         <h2 className='text-sm md:text-base uppercase text-gray-500 pb-3 tracking-[10px] md:tracking-[15px]'>
-          {pageInfo?.role ?? 'Software Developer'}
+          {info?.role ?? 'Software Developer'}
         </h2>
         <h1 className='text-3xl md:text-5xl lg:text-6xl font-semibold px-5'>
           <span className='mr-3'>{text}</span>

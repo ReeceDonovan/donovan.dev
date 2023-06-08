@@ -42,11 +42,11 @@ export default async function Home() {
       <Header socials={socials} />
 
       <section id='hero' className='snap-start'>
-        <HeroSection pageInfo={pageInfo} />
+        <HeroSection info={pageInfo} />
       </section>
 
       <section id='about' className='snap-center'>
-        <AboutSection pageInfo={pageInfo} />
+        <AboutSection info={pageInfo} />
       </section>
 
       <section id='experience' className='snap-center'>
@@ -62,7 +62,7 @@ export default async function Home() {
       </section>
 
       <section id='contact' className='snap-start'>
-        <ContactSection pageInfo={pageInfo} />
+        <ContactSection info={pageInfo} />
       </section>
 
       <a href='#hero' tabIndex={0} aria-label='Back to top'>
