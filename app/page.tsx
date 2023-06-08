@@ -12,9 +12,37 @@ import { client } from '@/sanity/lib/client';
 import { Experience, PageInfo, Project, Skill, Social } from '@/typings';
 import { ArrowUpCircleIcon } from '@heroicons/react/24/outline';
 
+const metadataValues = {
+  title: 'Reece Donovan - Software Engineer & Computer Science Graduate',
+  description:
+    "Reece Donovan, a Computer Science graduate from University College Cork and former Software Engineering Intern at HubSpot, shares his portfolio of projects and experiences in software development. Discover Reece's journey, skills, and contributions to the field of computer science.",
+  keywords:
+    'Reece Donovan, Reece, Donovan, Computer Science, CK401, UCC, University College Cork, Cork City, County Cork, Cork, Corcaigh, Ireland, Republic of Ireland, Eire, HubSpot, Software Engineering, Software, Engineer, Portfolio, Software Development, Software, Developer, Next.js, TypeScript, TailwindCSS, Sanity.io, Vercel, Photographer, reecedonovan99, 1999',
+  author: 'Reece Donovan',
+  image:
+    'https://cdn.sanity.io/images/jjbf7m3u/production/c2fc5a4719c5fa6aa2f524717d602b06465eb2e9-1873x2498.jpg',
+  // url: 'https://www.donovan.dev',
+  // url: 'http://localhost:3000/',
+  url: 'https://donovan-dev.vercel.app/',
+  site_name: "Reece Donovan's Portfolio",
+};
+
 export const metadata: Metadata = {
-  title: "Reece Donovan's Portfolio",
-  description: 'A software development portfolio for Reece Donovan.',
+  title: metadataValues.title,
+  description: metadataValues.description,
+  authors: [{ name: 'Reece Donovan', url: 'https://github.com/ReeceDonovan/' }],
+  keywords: metadataValues.keywords,
+  colorScheme: 'dark',
+  // Open Graph protocol metadata
+  openGraph: {
+    title: metadataValues.title,
+    description: metadataValues.description,
+    url: metadataValues.url,
+    siteName: metadataValues.site_name,
+    type: 'website',
+    // image: metadataValues.image,
+    locale: 'en_IE',
+  },
 };
 
 export default async function Home() {
