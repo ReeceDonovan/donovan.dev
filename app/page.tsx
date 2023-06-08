@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { groq } from 'next-sanity';
 
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
@@ -8,8 +7,13 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import ProjectSection from '@/components/ProjectSection';
 import SkillSection from '@/components/SkillSection';
-import { sanityClient } from '@/sanity/lib/client';
-import { Experience, PageInfo, Project, Skill, Social } from '@/typings';
+import {
+  getExperiences,
+  getPageInfo,
+  getProjects,
+  getSkills,
+  getSocials,
+} from '@/sanity/utils';
 import { ArrowUpCircleIcon } from '@heroicons/react/24/outline';
 
 const metadataValues = {
@@ -43,21 +47,21 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const experienceQuery = groq`*[_type == "experience"] | order(dateEnded desc, isCurrentPosition desc) {..., technologies[]->}`;
-  const pageInfoQuery = groq`*[_type == "pageInfo"][0]`;
-  const projectsQuery = groq`*[_type == "project"] {..., technologies[]->}`;
-  const skillsQuery = groq`*[_type == "skill"]`;
-  const socialsQuery = groq`*[_type == "social"]`;
+  // Initiate requests in parallel
+  const socialsData = getSocials();
+  const pageInfoData = getPageInfo();
+  const experiencesData = getExperiences();
+  const skillsData = getSkills();
+  const projectsData = getProjects();
 
-  const experiences: Experience[] = await sanityClient.fetch(experienceQuery);
-
-  const pageInfo: PageInfo = await sanityClient.fetch(pageInfoQuery);
-
-  const projects: Project[] = await sanityClient.fetch(projectsQuery);
-
-  const skills: Skill[] = await sanityClient.fetch(skillsQuery);
-
-  const socials: Social[] = await sanityClient.fetch(socialsQuery);
+  // Wait for parallel promises to resolve
+  const [socials, pageInfo, experiences, skills, projects] = await Promise.all([
+    socialsData,
+    pageInfoData,
+    experiencesData,
+    skillsData,
+    projectsData,
+  ]);
 
   return (
     <main
