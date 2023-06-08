@@ -27,6 +27,7 @@ const metadataValues = {
     'https://cdn.sanity.io/images/jjbf7m3u/production/c2fc5a4719c5fa6aa2f524717d602b06465eb2e9-1873x2498.jpg',
   url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
   site_name: "Reece Donovan's Portfolio",
+  email: 'reecedonovan99@gmail.com',
 };
 
 export const metadata: Metadata = {
@@ -43,6 +44,9 @@ export const metadata: Metadata = {
     siteName: metadataValues.site_name,
     type: 'website',
     locale: 'en_IE',
+    alternateLocale: 'en_US',
+    countryName: 'Ireland',
+    emails: [metadataValues.email],
   },
 };
 
