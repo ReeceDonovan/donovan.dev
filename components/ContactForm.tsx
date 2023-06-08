@@ -28,7 +28,9 @@ export default function ContactForm({ contactEmail: recipient }: Props) {
       formData.name ? `Hi, my name is ${formData.name}. ` : ''
     }${formData.message} (Sent from ${formData.email})`;
 
-    window.location.href = `mailto:${recipient}?subject=${formData.subject}&body=${emailBody}`;
+    const mailto = `mailto:${recipient}?subject=${formData.subject}&body=${emailBody}`;
+
+    window.location.href = mailto;
   };
 
   return (
