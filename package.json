@@ -34,6 +34,8 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@aws-sdk/signature-v4-crt": "^3.347.0",
+    "aws-crt": "^1.15.18",
     "tailwind-scrollbar": "^3.0.4"
   }
 }
