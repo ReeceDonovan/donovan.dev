@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.348.0",
     "@heroicons/react": "^2.0.18",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.11.5",
