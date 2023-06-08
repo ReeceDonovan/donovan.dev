@@ -53,13 +53,13 @@ export default function ExperienceCard({ experience }: Props) {
           )}
         </p>
 
-        <div className='flex flex-wrap justify-center md:justify-start space-x-2 md:space-x-4 mb-2'>
+        <div className='flex flex-wrap justify-center md:justify-start mb-2'>
           {experience?.technologies?.map((tech) => (
             <Image
               key={tech._id}
               width={40}
               height={40}
-              className='h-7 w-7 md:h-10 md:w-10 rounded-full p-0.5'
+              className='h-8 w-8 md:h-11 md:w-11 rounded-full p-0.5 mr-2 md:mr-4 mb-1'
               src={
                 urlForImage(tech?.image)
                   .size(128, 128)
