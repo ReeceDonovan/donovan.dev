@@ -1,39 +1,12 @@
-'use client';
-
-import { SubmitHandler, useForm } from 'react-hook-form';
-
+import ContactForm from './ContactForm';
 import { PageInfo } from '@/typings';
 import { EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/solid';
 
-type Inputs = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-};
-
 type Props = {
-  pageInfo: PageInfo;
+  info: PageInfo;
 };
 
-export default function ContactSection({ pageInfo }: Props) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
-
-  const inputStyles =
-    'contactInput text-center md:text-left placeholder:text-center md:placeholder-left';
-
-  const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    const emailBody = `${
-      formData.name ? `Hi, my name is ${formData.name}. ` : ''
-    }${formData.message} (Sent from ${formData.email})`;
-
-    window.location.href = `mailto:${pageInfo?.email}?subject=${formData.subject}&body=${emailBody}`;
-  };
-
+export default function ContactSection({ info }: Props) {
   return (
     <div className='h-[calc(100dvh)] relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'>
       <h3 className='absolute top-20 md:top-24 uppercase tracking-[10px] md:tracking-[20px] text-gray-500 text-xl md:text-2xl pl-3'>
@@ -51,62 +24,16 @@ export default function ContactSection({ pageInfo }: Props) {
         <div className='space-y-4'>
           <div className='flex items-center space-x-5 justify-center -ml-4'>
             <EnvelopeIcon className='text-primary h-7 w-7 animate-pulse flex-initial' />
-            <p className='text-base md:text-2xl'>{pageInfo?.email}</p>
+            <p className='text-base md:text-2xl'>{info?.email}</p>
           </div>
 
           <div className='flex items-center space-x-5 justify-center -ml-4'>
             <MapPinIcon className='text-primary h-7 w-7 animate-pulse flex-initial' />
-            <p className='text-base md:text-2xl'>{pageInfo?.address}</p>
+            <p className='text-base md:text-2xl'>{info?.address}</p>
           </div>
         </div>
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className='flex flex-col space-y-2 w-fit mx-auto'
-        >
-          <label className='hidden' htmlFor='name'>
-            Name
-          </label>
-          <input
-            id='name'
-            placeholder='Enter your name'
-            className={inputStyles}
-            type='text'
-            {...register('name')}
-          />
-
-          <label className='hidden' htmlFor='email'>
-            Email
-          </label>
-          <input
-            id='email'
-            placeholder='Enter your email'
-            className={inputStyles}
-            type='email'
-            {...register('email', { required: 'Email is required' })}
-          />
-          {errors.email && <p>{errors.email.message}</p>}
-
-          <input
-            placeholder='Subject'
-            className='contactInput text-center md:text-left placeholder:text-center md:placeholder-left'
-            type='text'
-            {...register('subject')}
-          />
-
-          <textarea
-            placeholder='Message'
-            className='contactInput text-center md:text-left placeholder:text-center md:placeholder-left'
-            {...register('message')}
-          />
-
-          <button
-            type='submit'
-            className='bg-primary/60 hover:bg-primary/80 py-3 px-10 rounded-md text-black font-bold text-lg'
-          >
-            Submit
-          </button>
-        </form>
+        <ContactForm contactEmail={info?.email} />
       </div>
     </div>
   );
