@@ -15,7 +15,7 @@ import { ArrowUpCircleIcon } from '@heroicons/react/24/outline';
 const metadataValues = {
   title: 'Reece Donovan - Software Engineer & Computer Science Graduate',
   description:
-    "Reece Donovan, a Computer Science graduate from University College Cork and former Software Engineering Intern at HubSpot, shares his portfolio of projects and experiences in software development. Discover Reece's journey, skills, and contributions to the field of computer science.",
+    "Explore Reece Donovan's portfolio: a Computer Science graduate from University College Cork with software engineering experience at HubSpot. Check out his projects, learn about his experiences, and get insights into his journey in the tech industry.",
   keywords:
     'Reece Donovan, Reece, Donovan, Computer Science, CK401, UCC, University College Cork, Cork City, County Cork, Cork, Corcaigh, Ireland, Republic of Ireland, Eire, HubSpot, Software Engineering, Software, Engineer, Portfolio, Software Development, Software, Developer, Next.js, TypeScript, TailwindCSS, Sanity.io, Vercel, Photographer, reecedonovan99, 1999',
   author: 'Reece Donovan',
