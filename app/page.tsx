@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { groq } from 'next-sanity';
 
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
@@ -8,8 +7,13 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import ProjectSection from '@/components/ProjectSection';
 import SkillSection from '@/components/SkillSection';
-import { client } from '@/sanity/lib/client';
-import { Experience, PageInfo, Project, Skill, Social } from '@/typings';
+import {
+  getExperiences,
+  getPageInfo,
+  getProjects,
+  getSkills,
+  getSocials,
+} from '@/sanity/utils';
 import { ArrowUpCircleIcon } from '@heroicons/react/24/outline';
 
 const metadataValues = {
@@ -23,6 +27,7 @@ const metadataValues = {
     'https://cdn.sanity.io/images/jjbf7m3u/production/c2fc5a4719c5fa6aa2f524717d602b06465eb2e9-1873x2498.jpg',
   url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
   site_name: "Reece Donovan's Portfolio",
+  email: 'reecedonovan99@gmail.com',
 };
 
 export const metadata: Metadata = {
@@ -39,25 +44,28 @@ export const metadata: Metadata = {
     siteName: metadataValues.site_name,
     type: 'website',
     locale: 'en_IE',
+    alternateLocale: 'en_US',
+    countryName: 'Ireland',
+    emails: [metadataValues.email],
   },
 };
 
 export default async function Home() {
-  const experienceQuery = groq`*[_type == "experience"] | order(dateEnded desc, isCurrentPosition desc) {..., technologies[]->}`;
-  const pageInfoQuery = groq`*[_type == "pageInfo"][0]`;
-  const projectsQuery = groq`*[_type == "project"] {..., technologies[]->}`;
-  const skillsQuery = groq`*[_type == "skill"]`;
-  const socialsQuery = groq`*[_type == "social"]`;
+  // Initiate requests in parallel
+  const socialsData = getSocials();
+  const pageInfoData = getPageInfo();
+  const experiencesData = getExperiences();
+  const skillsData = getSkills();
+  const projectsData = getProjects();
 
-  const experiences: Experience[] = await client.fetch(experienceQuery);
-
-  const pageInfo: PageInfo = await client.fetch(pageInfoQuery);
-
-  const projects: Project[] = await client.fetch(projectsQuery);
-
-  const skills: Skill[] = await client.fetch(skillsQuery);
-
-  const socials: Social[] = await client.fetch(socialsQuery);
+  // Wait for parallel promises to resolve
+  const [socials, pageInfo, experiences, skills, projects] = await Promise.all([
+    socialsData,
+    pageInfoData,
+    experiencesData,
+    skillsData,
+    projectsData,
+  ]);
 
   return (
     <main

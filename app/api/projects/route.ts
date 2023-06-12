@@ -1,7 +1,7 @@
 import { groq } from 'next-sanity';
 import { NextResponse } from 'next/server';
 
-import { client } from '@/sanity/lib/client';
+import { sanityClient } from '@/sanity/lib/client';
 import { Project } from '@/typings';
 
 export async function GET() {
@@ -12,7 +12,7 @@ export async function GET() {
     }
   `;
 
-  const projects: Project[] = await client.fetch(query);
+  const projects: Project[] = await sanityClient.fetch(query);
 
   return NextResponse.json({ projects });
 }

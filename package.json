@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.348.0",
     "@heroicons/react": "^2.0.18",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.11.5",
@@ -33,6 +34,8 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@aws-sdk/signature-v4-crt": "^3.347.0",
+    "aws-crt": "^1.15.18",
     "tailwind-scrollbar": "^3.0.4"
   }
 }
