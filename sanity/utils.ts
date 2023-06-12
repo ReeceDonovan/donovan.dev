@@ -6,7 +6,7 @@ import { sanityClient } from './lib/client';
 
 export async function getExperiences(): Promise<Experience[]> {
   const experiencesQuery = groq`
-    *[_type == "experience"] {
+    *[_type == "experience"] | order(dateEnded desc, isCurrentPosition desc) {
       ...,
       technologies[]->
     }

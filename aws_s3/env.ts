@@ -18,6 +18,11 @@ export const awsBucketSecretAccessKey = assertValue(
   'Missing environment variable: AWS_BUCKET_SECRET_ACCESS_KEY'
 );
 
+export const awsCloudFrontDomain = assertValue(
+  process.env.NEXT_PUBLIC_AWS_CLOUDFRONT_DOMAIN,
+  'Missing environment variable: NEXT_PUBLIC_AWS_CLOUDFRONT_DOMAIN'
+);
+
 function assertValue<T>(v: T | undefined, errorMessage: string): T {
   if (v === undefined) {
     throw new Error(errorMessage);

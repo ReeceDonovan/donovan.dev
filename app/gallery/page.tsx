@@ -1,5 +1,7 @@
-import { listBucketObjects } from '@/aws_s3/utils';
 import Image from 'next/image';
+
+import { awsCloudFrontDomain } from '@/aws_s3/env';
+import { listBucketObjects } from '@/aws_s3/utils';
 
 // Create types for the data we'll receive from the API
 type GalleryImage = {
@@ -19,7 +21,7 @@ export default async function Gallery() {
       {images?.map((image: GalleryImage) => (
         <div className='grid-element w-full h-full' key={image.url}>
           <Image
-            src={`https://${process.env.NEXT_PUBLIC_AWS_CLOUDFRONT_DOMAIN}/${image.url}`}
+            src={`https://${awsCloudFrontDomain}/${image.url}`}
             alt={image.alt}
             className='w-full h-fit mb-2'
             width={500}

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { SocialIcon } from 'react-social-icons';
 
 import * as motion from '@/lib/motion';
@@ -32,13 +33,29 @@ export default function Header({ socials }: Props) {
         ))}
       </motion.div>
 
-      {/* Contact Icon */}
       <motion.div
         initial={{ x: 500, opacity: 0, scale: 0.5 }}
         animate={{ x: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 1.25 }}
         className='flex flex-row items-center text-gray-300 cursor-default'
       >
+        {/* Gallery Icon */}
+        <SocialIcon
+          className='cursor-pointer'
+          network='vsco'
+          fgColor='gray'
+          bgColor='transparent'
+          url='/gallery'
+          aria-label='View my gallery'
+          tabIndex={0}
+        />
+        <Link href='/gallery' tabIndex={0} aria-label='View my gallery'>
+          <p className='uppercase hidden md:inline-flex text-sm text-gray-400'>
+            Gallery
+          </p>
+        </Link>
+
+        {/* Contact Icon */}
         <SocialIcon
           className='cursor-pointer'
           network='email'
