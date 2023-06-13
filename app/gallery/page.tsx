@@ -3,11 +3,14 @@ import Image from 'next/image';
 import { awsCloudFrontDomain } from '@/aws_s3/env';
 import { listBucketObjects } from '@/aws_s3/utils';
 
+export const revalidate = 60 * 20; // 20 minutes
+
 // Create types for the data we'll receive from the API
 type GalleryImage = {
   url: string;
   alt: string;
 };
+
 export default async function Gallery() {
   const data = await listBucketObjects();
 
